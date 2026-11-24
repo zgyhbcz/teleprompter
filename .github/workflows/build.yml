@@ -1,0 +1,47 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: 编译与校验
+    runs-on: windows-latest
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 环境信息
+        shell: pwsh
+        run: |
+          "PowerShell: $($PSVersionTable.PSVersion)"
+          "csc: $((Get-Command "$env:WINDIR\Microsoft.NET\Framework64\v4.0.30319\csc.exe").Source)"
+          "OS: $([Environment]::OSVersion.VersionString)"
+
+      - name: 编译
+        shell: pwsh
+        run: ./src/build.ps1
+
+      - name: 校验产物
+        shell: pwsh
+        run: |
+          if (-not (Test-Path dist/TiCi.exe)) { throw "构建产物 dist/TiCi.exe 不存在" }
+          $fi = Get-Item dist/TiCi.exe
+          "产物大小: {0:N1} KB" -f ($fi.Length / 1KB)
+          "文件版本: $($fi.VersionInfo.FileVersion)"
+          if ($fi.Length -gt 5MB) { throw "产物异常偏大，疑似引入了依赖" }
+
+      - name: 上传构建产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: TiCi
+          path: dist/TiCi.exe
+          if-no-files-found: error
+          retention-days: 14

@@ -1,0 +1,71 @@
+name: 问题反馈
+description: 报告一个可复现的问题
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢反馈。请尽量把信息填完整，尤其是**分辨率**和**复现步骤**，
+        否则很难定位。
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 现象
+      description: 发生了什么？你期望是什么？
+      placeholder: 例如：主窗口缩小后，预览区变成一片空白。
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 复现步骤
+      description: 一步步写清楚，能稳定复现最好
+      placeholder: |
+        1. 打开程序
+        2. 载入 xxx.docx
+        3. 把窗口从最大化拖到 1000×700
+        4. 预览区变空白
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: 版本
+      description: exe 属性 → 详细信息 → 文件版本
+      placeholder: "1.0.2.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: os
+    attributes:
+      label: 操作系统
+      options:
+        - Windows 11
+        - Windows 10
+        - Windows 8.1
+        - Windows 7 SP1
+        - 其他（请在下方补充）
+    validations:
+      required: true
+
+  - type: input
+    id: display
+    attributes:
+      label: 屏幕与缩放
+      description: 几块屏、分辨率、Windows 缩放比例
+      placeholder: "主屏 1920×1080 100%，副屏 1920×1080 100%"
+    validations:
+      required: false
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: 截图 / 日志
+      description: 可以直接拖图片进来；也欢迎附上 `_selftest\` 下的输出
+    validations:
+      required: false

@@ -1,0 +1,17 @@
+# 统一按文本处理，仓库内保存 LF，检出时按平台转换
+* text=auto
+
+# Windows 批处理与 PowerShell 脚本保持 CRLF
+*.bat  text eol=crlf
+*.cmd  text eol=crlf
+*.ps1  text eol=crlf
+*.sln  text eol=crlf
+*.csproj text eol=crlf
+
+# 二进制文件不做任何转换
+*.exe  binary
+*.dll  binary
+*.ico  binary
+*.png  binary
+*.jpg  binary
+*.docx binary

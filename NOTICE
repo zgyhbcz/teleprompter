@@ -1,0 +1,29 @@
+TiCi
+Copyright (c) 2026 TiCi contributors
+
+本软件以 MIT 许可证发布，详见 LICENSE。
+
+--------------------------------------------------------------------------------
+第三方致谢 / Third-party credits
+--------------------------------------------------------------------------------
+
+1. Eyevinn Open Teleprompter
+   https://github.com/Eyevinn/teleprompter
+   Copyright 2025 Eyevinn Technology AB
+   Licensed under the Apache License, Version 2.0
+
+   本项目 web/ 目录下的单文件网页版，其滚屏、镜像与快捷键的设计思路参考了
+   上述项目（controller / display 分离、CSS transform 镜像、键盘快捷键映射）。
+   实现为独立重写：不包含服务端、不使用 WebSocket 同步、不复制其源文件，
+   因此本项目整体保持 MIT 许可。
+
+   The single-file browser edition under web/ was inspired by the project above
+   (controller/display separation, CSS-transform mirroring, keyboard mapping).
+   It is an independent rewrite: no server, no WebSocket sync, and no source
+   files were copied. The repository as a whole therefore remains MIT-licensed.
+
+2. 字体 / Fonts
+   界面使用系统内置字体 Microsoft YaHei（微软雅黑），不随程序分发任何字体文件。
+
+3. 图标 / Icon
+   app.ico 为本项目自行绘制，未使用任何第三方素材。

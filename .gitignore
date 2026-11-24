@@ -1,0 +1,25 @@
+# ---- 构建产物 ----
+/dist/
+/bin/
+/obj/
+*.exe
+*.pdb
+*.zip
+
+# ---- 运行时数据 ----
+提词器数据.txt
+TiCi.ini
+
+# ---- 自检输出 ----
+/_selftest/
+
+# ---- 编辑器 / IDE ----
+.vs/
+.idea/
+*.user
+*.suo
+
+# ---- 系统 ----
+Thumbs.db
+desktop.ini
+.DS_Store
