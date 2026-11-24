@@ -39,7 +39,7 @@ jobs:
           if ($fi.Length -gt 5MB) { throw "产物异常偏大，疑似引入了依赖" }
 
       - name: 上传构建产物
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: TiCi
           path: dist/TiCi.exe
